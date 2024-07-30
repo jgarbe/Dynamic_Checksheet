@@ -1,0 +1,37 @@
+<?php
+function q_set($Checksheetno, $merged, $merger){
+	
+				
+	
+	require_once('connectvars.php');
+					$dbc1 =  new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
+  
+if (mysqli_connect_errno()) {  printf("Connect failed: %s\n", mysqli_connect_error());
+    exit();
+}    // finished checking for errors while connecting
+
+//print("This is working so far<br />\n");
+				$Checksheet_events_table=$Checksheetno."_events";	
+					// get the last event by id
+		$submit_check="SELECT * FROM ".$Checksheet_events_table." WHERE submitted IS NULL ORDER BY id DESC LIMIT 1";  
+	$result_q_set=$dbc1->query($submit_check);
+						if ($result_q_set->num_rows >=1 )	{	
+				while($row = $result_q_set->fetch_array()){
+					return $row[id];
+							}								
+	$result_q_set->close();
+					}							
+					 else  {
+		$querystartid="INSERT INTO ".$Checksheet_events_table."(id,date,merged,merger)  VALUES ('',Now(),'".$merged."','".$merger."')"; //get event id for data insert
+		if($result_q=$dbc1->query($querystartid)){
+                                    $q_set = $dbc1->insert_id;
+			return $q_set;	
+						}
+						
+					
+				}								
+	mysqli_close($dbc1);
+	}
+			?>
+
+			
