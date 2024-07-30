@@ -1,0 +1,45 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+//	// The breakdown of all of array formed.
+//	foreach($CH as $no) {       //The "array" AS the "order of checksheet  no."
+//	foreach($no as $casc_id) {     //The "order of checksheet  no." AS "The checksheet_id" array.
+//		$Checksheetno=$casc_id[0];   //The "Checksheet Name"
+//		//$sealable=$casc_id[1];       //If the checksheet is sealable
+//		//$sealed=$casc_id[2];			// If the checksheet is sealed
+//		//$Signature=$casc_id[3];		// If it IS sealed -- who sealed it
+//		//$qset=$casc_id[5];			// The database id no.	
+//		$Cats=$casc_id[4];
+//		//print("$Checksheetno<BR>\n");
+//		//print_r2($Cats);
+//	foreach($Cats as $Checkrow)	{
+//	foreach($Checkrow as $catarray_id =>  $catname) {
+//		$CATEGORY=$catname[0];
+//		$Catarray=$catname[1];
+//		//print("$CATEGORY<BR>\n");
+//		//print_r2($catname[1]);
+//	foreach($Catarray as $Subcatrow)	{
+//	foreach($Subcatrow as $subcatarray_id =>  $subcatname) {
+//		$SUBCATEGORY=$subcatname[0];
+//		$SUBCATCOLS=$subcatname[1];
+//		$Itemsarray=$subcatname[2];
+//		//print("$SUBCATEGORY<BR>\n");
+//		//print("$SUBCATCOLS<BR>\n");
+//		//print_r2($Itemsarray);
+//	foreach($Itemsarray as $Itemstuff)	{
+//		$Item_id=$Itemstuff[0];
+//		$Itemname=$Itemstuff[1];
+//		$HowMany=$Itemstuff[2];
+//		$perishable=$Itemstuff[3];
+//		$req=$Itemstuff[4];
+//		//print_r2($Itemstuff);
+//		//print("$Itemname<BR>\n");
+//		//print("$HowMany<BR>\n");
+//		//print("$Item_id<BR>\n");
+//      }
+//		}}
+//		}}
+//		}}
+//
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
