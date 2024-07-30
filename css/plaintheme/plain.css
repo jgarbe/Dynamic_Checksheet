@@ -1,0 +1,365 @@
+
+html,  body {
+	height:100%;
+        color: black;
+	background-color:#474444 ;
+	font-family: sans-serif;
+	font-size: 14px;
+
+}
+.wrapper {
+ min-height: 100%;
+ height: auto;
+ height: 100%;
+ margin: 0 auto -4em;
+ }
+.push {
+ height: 4em;
+ }
+
+
+
+div.tabs {
+cursor: pointer;
+font-size: 120%;
+font-weight: bold;
+}
+
+a.tab {
+		background-color: #333030;
+		border-style: outset;
+border-top: 1px solid #000000;
+border-right: 1px solid #000000;
+border-left: 1px solid #000000;
+border-bottom-width: 0px;
+padding: 2px 1em 2px 1em;
+text-decoration: none;
+}
+
+a.tab, a.tab:visited {
+		border-style: outset;
+color: blue;
+}
+
+a.tab:hover {	
+background-color: gray;
+		border-style: outset;
+		border-bottom: 0px;
+	cursor: pointer;
+	cursor: hand;
+color: blue;
+}
+
+/*
+* note that by default all tab content areas
+* have display set to 'none'
+*/
+div.tabContent {
+padding: 4px;
+		border-style: outset;
+border: 2px solid #000000;
+background-color: gray;
+	display: none;
+}
+	
+
+div.page {
+width:95%;
+margin:5px;
+border:1px solid gray;
+font-size: 80%;
+}
+
+
+div.header {
+background-color: gray;
+	color: brown;
+	text-align: right;
+	border-bottom: 1px solid gray;
+	height:15
+		font-size: 100%;0px;
+	}
+
+
+
+div.comment_ {
+	clear: both;
+	width: 95%;
+	margin: 18px;
+	font-family: Verdana;
+	font-size: 80%;
+	padding: 3px;
+	border-top: 1px solid #333;
+	color: black;
+	}
+	
+div.footer {
+	clear: both;
+	width: 95%;
+	 height: 4em;
+	text-align: center;
+	font-family:Verdana;
+	padding: 3px;
+	border-top: 1px solid #333;
+	color: black;
+	}
+
+	
+	
+div.footer .date {
+		float: left;
+		text-align: left;
+		color:black;
+		}
+	
+div.footer .contact {
+		float: right;
+		text-align: right;
+		color:black;
+		}
+		
+
+	
+div.h,div.f	{
+	padding:0.1em;
+		font-size: 100%;
+	font-weight: bold;
+	font-family: sans-serif;
+		border-style: outset;
+	background-color: #061750;
+	border-bottom: 3px solid black;
+	color:white;
+	text-align:center;
+		}
+	
+
+div.indexing {
+	clear: both;
+	width: 95%;
+	margin: 18px;
+	text-align: left;
+	font-family:Verdana;
+	padding: 0.5em;
+		border-style: outset;
+	border-top: 1px solid #333;
+	color: brown;
+	}
+
+
+
+div.sh,div.f	{
+	padding:0.1em;
+		font-size: 100%;
+	font-weight: bold;
+	font-family: sans-serif;
+		border-style: outset;
+	background-color: blue;
+	color:white;
+	text-align:center;
+		}
+div.hchild	{
+	font-weight: bold;
+	font-family: sans-serif;
+	background-color: #474444;
+		border-style: outset;
+	color: black;
+	text-align:center;
+		}		
+div.l{
+		padding:0.25em;
+		float:left;
+		font-size: .8em;
+		font-weight:bold;
+		text-align:right;
+		text-shadow: gray;
+		border-style: outset;
+		border-right: 0px;
+		border-bottom: 0px;
+	background-color: gray;
+			padding-right: 1em;
+		color: black;
+		}
+div.redl{
+		padding:0.25em;
+		float:left;
+		font-size: .8em;
+		text-align:right;
+	background-color: gray;
+			padding-right: 1em;
+		color: #940202;
+		}
+		
+div.r{
+		padding:0.25em;
+		font-size: 0.8em;
+		text-align:right;
+	background-color: gray;
+		border-style: outset;
+		padding-left: 1em;
+		padding-right: 1em;
+		}
+div.chbox  {
+		padding:0.25em;
+		font-size: 0.8em;
+	font-weight: bold;
+	font-family: sans-serif;
+	background-color: gray;
+		border-style: outset;
+	text-align:left;
+	color:black;
+	}
+td.redchk{
+	font-weight: bold;
+	font-family: sans-serif;
+	color: #FF0000;
+	
+	}
+
+
+option {background-color: white; font-weight: bold; font-size: 12px; }
+
+option.redchk {background-color: #474444; font-weight: bold; font-size: 12px; color: black;}
+
+td.yellowchk {
+	font-weight: bold;
+	font-family: sans-serif;
+	color: brown;
+	
+	}
+
+
+td.chbox{
+	font-weight: bold;
+	font-family: sans-serif;
+	
+	}
+
+td.plist{
+	font-weight: bold;
+	font-family: sans-serif;
+			padding:0.25em;
+		float:left;
+		font-size: .8em;
+		font-weight:bold;
+		text-align:right;
+		border-style: outset;
+		border-right: 0px;
+		border-bottom: dotted 1px;
+	background-color: #0E1B7D;
+			padding-right: 1em;
+		color: white;
+	}
+
+
+h1, h2, h3, h4, h5, h6 {
+	color: black;
+	font-family: Georgia ;
+	margin-top: 0px;
+	} 
+
+
+
+
+
+iframe {
+	background-color: white;
+	
+}
+
+/* links */
+
+a {
+	font-size: 14px;
+	padding: 3px;
+	font-family: sans-serif;
+	text-decoration: none;
+	text-align:right;
+}
+
+a:hover {
+
+	color: blue;
+
+}
+
+
+li {line-height: 20px;} 
+/* menu */
+
+
+
+
+
+
+select {
+
+	color: black;
+	font-size: 14px;
+	font-family: sans-serif;
+	background-color: white;
+	border: 1px solid #888888;
+
+}
+
+
+/* textarea box */
+
+textarea {
+
+	color: black;
+	font-size: 14px;
+	font-family: sans-serif;
+	background-color: white;
+	border: 1px solid #888888;
+
+}
+
+legend,label, li {
+	font-family:Verdana;
+	padding: 3px;
+	color: black;
+	}
+
+p.error{
+	font-family:Verdana;
+	font-size: 20px;
+	padding: 3px;
+	color: red;
+	}
+
+div.scrollTableContainer {
+height: 285px;
+overflow: auto;
+width: 970px;
+margin: 15px 0 0 0;
+position: relative;
+}
+
+/* The different widths below are due to the way the scroll bar is implamented */
+
+/* All browsers (but especially IE) */
+div.scrollTableContainer table {
+width: 952px;
+}
+
+/* Modern browsers (but especially firefox ) */
+html>/**/body div.scrollTableContainer table {
+width: 970px;
+}
+
+/* Modern browsers (but especially firefox ) */
+html>/**/body div.scrollTableContainer table>tbody {
+overflow: auto;
+height: 250px;
+overflow-x: hidden;
+}
+
+div.scrollTableContainer thead tr {
+position:relative;
+top: expression(offsetParent.scrollTop); /*IE5+ only*/
+/* fixes the header being over too far in IE, doesn’t seem to affect FF */
+left: 0px;
+}
+
+/*prevent Mozilla scrollbar from hiding cell content*/
+div.scrollTableContainer td:last-child {padding-right: 20px;}
