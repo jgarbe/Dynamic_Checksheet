@@ -1,0 +1,60 @@
+<html>
+<head>
+<script language="JavaScript">
+
+
+var choice = 0;
+var urlGets = document.URL.split("?");
+if (urlGets.length > 1) {
+	var variableGets = urlGets[1].split("&");
+	for (i=0; i < variableGets.length; i++ ) {
+		var pGets = variableGets[i].split("=");
+		var pName = pGets[0];
+		var pValue = pGets[1];
+		if (pName == "choice" ) {
+				choice = pValue;
+				}
+		}
+}
+	function newDocument() {
+		document.open();
+		document.write("<p>This is a document that is manipulated by document.open.</p>");
+		document.close();
+		choice = 1;
+		}
+	
+if (choice == 1)	{
+	document.write("<strong> Choice 1 </strong><br />");
+	} else { document.write("<a href='menu.html?choice=1'>Choice 1</a><br />");
+	}
+	if (choice == 2)	{
+	document.write("<strong> Choice 2 </strong><br />");
+	} else { document.write("<a href='menu.html?choice=2'>Choice 2</a><br />");
+	}if (choice == 3)	{
+	document.write("<strong> Choice 3 </strong><br />");
+	} else { document.write("<a href='menu.html?choice=3'>Choice 3</a><br />");
+	}if (choice == 4)	{
+	document.write("<strong> Choice 4 </strong><br />");
+	} else { document.write("<a href='menu.html?choice=4'>Choice 4</a><br />");
+	}if (choice == 5)	{
+	document.write("<strong> Choice 5 </strong><br />");
+	} else { document.write("<a href='menu.html?choice=5'>Choice 5</a><br />");
+	}
+document.write("<hr />");	
+if (choice == 1)	{document.write("<p>This is the Body of Choice 1.</p>");
+document.write("<a href='#' onClick='newDocument()'> Display New Document</a>");
+	}
+	if (choice == 2)	{document.write("<p>This is the Body of Choice 2.</p>");
+	}
+	if (choice ==3)	{document.write("<p>This is the Body of Choice 3.</p>");
+	}
+	if (choice == 4)	{document.write("<p>This is the Body of Choice 4.</p>");
+	}
+	if (choice == 5)	{document.write("<p>This is the Body of Choice 5.</p>");
+	}
+</script>
+</head>
+<body>
+
+</body>
+</html>
