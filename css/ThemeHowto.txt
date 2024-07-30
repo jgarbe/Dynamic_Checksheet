@@ -1,0 +1,19 @@
+
+/////////////////////////////////////////////////////////////
+//
+//   Written by Jim Garbe - Dynamic Checksheet
+//
+///////////////////////////////////////////////////////////////
+
+
+
+
+
+To Change the Theme
+
+
+1: Copy and paste the css directory
+2: Edit the desired graphic files.
+3. Create and edit a new *.css file.
+4. Create and edit the "<whatever>theme.php" file. 
+5. Replace the "<whatever>theme.php file includes in the /main.php and the /inc/title.php files.
