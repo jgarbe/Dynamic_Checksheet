@@ -44,7 +44,7 @@ Step 6. Load the database.
       Edit the "demo_inv_01-23-2016.sql" file, deleting the example users in the _user table, but leaving the 'Administrator' and 'cheddar,' the other administrator.
       
       
-    "  $mysql -u <databaseusername> -p<databasepassword> <databasename> < demo_inv_01-23-2016.sql   "
+      $mysql -u <databaseusername> -p<databasepassword> <databasename> < demo_inv_01-23-2016.sql   
     
     
     NOTE: No space after the "-p" for the database password.  
