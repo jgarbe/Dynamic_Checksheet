@@ -16,15 +16,22 @@ Step 3. Create a database:
       If using Debian or a home linux system, you must "su" to the root user first.
       
         $ su
-      
-      then
+
+then
       
         # mysql -u root -p
-        
+
+then        
+
     > create database <database_name>;
+
+then    
     
     > grant all on <database_name>.* to <databaseusername>@localhost identified by '<password>';
-    
+
+and finally
+
+    > exit;
     
 Step 4. edit "Dynamic_Checksheet/inc/connectvars.php" 
 
