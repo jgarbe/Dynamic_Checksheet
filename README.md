@@ -46,22 +46,22 @@ Step 6. Load the database.
      $cd Dynamic_Checksheet/sql
     
     
-    For the TN_ALS standard:
+For the TN_ALS standard:
     
-      Edit the "demo_inv_01-23-2016.sql" file, deleting the example users in the _user table, but leaving the 'Administrator' and 'cheddar,' the other administrator.
+Edit the "demo_inv_01-23-2016.sql" file, deleting the example users in the _user table, but leaving the 'Administrator' and 'cheddar,' the other administrator.
       
       
       $mysql -u <databaseusername> -p<databasepassword> <databasename> < demo_inv_01-23-2016.sql   
     
     
-    NOTE: No space after the "-p" for the database password.  
+NOTE: No space after the "-p" for the database password.  
     
 Step 7.  Create a password for Administrator.
 
-    I wish I had a better way of doing this.  
-    Open the program as user:cheddar -- password: cheese and create a dummy user with your Administrator password.
-    Use phpmyadmin to copy the encrypted password from the user to the Administrator.
-    Now, you can delete the user and cheddar.
+I wish I had a better way of doing this.  
+Open the program as user:cheddar -- password: cheese and create a dummy user with your Administrator password.
+Use phpmyadmin to copy the encrypted password from the user to the Administrator.
+Now, you can delete the user and cheddar.
       
     
 
