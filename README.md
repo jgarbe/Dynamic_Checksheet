@@ -9,7 +9,7 @@ Step 1.  Set up a LAMP server. Linux,Apache2,Mysql(MariaDB),and PHP -- I heavily
 
 Step 2.  Git clone to a directory on your server.  
 
-  $ git clone https://github.com/jgarbe/Dynamic_Checksheet.git
+    $ git clone https://github.com/jgarbe/Dynamic_Checksheet.git
   
 Step 3. Create a database:
       If you have a hosting service, use the tools they offer to create a database.
