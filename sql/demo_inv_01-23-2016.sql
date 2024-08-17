@@ -7170,11 +7170,9 @@ CREATE TABLE IF NOT EXISTS `_user` (
 --
 
 INSERT INTO `_user` (`user_id`, `username`, `password`, `join_date`, `first_name`, `last_name`, `status`, `mailrec`, `email_address`) VALUES
-(1, 'Administrator', '359e14d5e440ac16c309053bd0967c87d236cf87', '2009-04-06 18:12:22', 'James', 'Garbe', 1, 0, ''),
+(1, 'Administrator', 'bcef7a046258082993759bade995b3ae8bee26c7', '2009-04-06 18:12:22', 'James', 'Garbe', 1, 1, ''),
 (185, 'cheddar', 'bcef7a046258082993759bade995b3ae8bee26c7', '2013-10-30 19:53:06', '', '', 1, 0, 'cheddar@cheese.com'),
-(183, 'kilgore_trout', '08570a57d71dbb872c39ca9bd14a82215a908e78', '2013-10-30 15:40:08', '', '', 2, 0, 'kurt@vonnegut.com'),
-(182, 'cheese', '2e212ebba9302a65e9fd21f6772368fe60592fe8', '2013-10-30 15:39:28', '', '', 2, 0, 'cheesey@localhost'),
-(186, 'jimgarbe', '359e14d5e440ac16c309053bd0967c87d236cf87', '2014-02-25 15:42:19', '', '', 2, 1, 'jimgarbe@gmail.com');
+(182, 'cheese', '2e212ebba9302a65e9fd21f6772368fe60592fe8', '2013-10-30 15:39:28', '', '', 2, 0, 'cheesey@localhost');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
