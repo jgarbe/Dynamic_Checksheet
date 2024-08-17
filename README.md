@@ -63,7 +63,7 @@ Open the program as user:cheddar -- password: cheese and create a dummy user wit
 Use phpmyadmin to copy the encrypted password from the user to the Administrator.
 Now, you can delete the user and cheddar.
 
-# Step 7.  set correct permissions to the tmp and the config folder.
+# Step 8.  set correct permissions to the tmp and the config folder.
 Dynamic Checksheet will be writing files for cache and uploading of files. 
 
     # chown -R www-data:www-data tmp
