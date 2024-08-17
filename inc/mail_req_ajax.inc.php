@@ -64,7 +64,7 @@ $subject = $Checksheetno.' Supply Requisition';
 $random_hash = md5(date('r', time()));
 //define the headers we want passed. Note that they are separated with \r\n
 //$headers = "From: ".$Checksheetno."@".MAIL_SERVER."\r\nReply-To: jimgarbe@".MAIL_SERVER."";
-$headers = "From: ".$Checksheetno."@dynamic-checksheet.com \r\n Reply-To: jimgarbe@gmail.com";
+$headers = "From: ".$Checksheetno."@".MAIL_SERVER." \r\n Reply-To: noreply@".MAIL_SERVER." ";
 //  HTML Mime type
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
@@ -72,7 +72,7 @@ $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 //$headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 $headers .="Message-ID: <". time() .rand(). "@".$_SERVER['SERVER_NAME'].">". "\r\n";
 //$headers .="Return-Path: webmin@".MAIL_SERVER."\r\n";
-$headers .="Return-Path: jimgarbe@gmail.com\r\n";
+$headers .="Return-Path: noreply@".MAIL_SERVER."\r\n";
 //define the body of the message.
 ob_start(); //Turn on output buffering
 /*?>

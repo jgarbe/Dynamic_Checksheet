@@ -2,8 +2,8 @@
 
 // Written by Jim Garbe
   // Define database connection constants
-  define('DB_HOST', 'localhost');
-  define('DB_USER', 'cheese');
-  define('DB_PASSWORD', 'wiz');
-  define('DB_NAME', 'klsc');
+  define('DB_HOST', '<your host>');
+  define('DB_USER', '<your database username>');
+  define('DB_PASSWORD', '<your password>');
+  define('DB_NAME', '<your databse name>');
 ?>

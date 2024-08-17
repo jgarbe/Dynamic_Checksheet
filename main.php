@@ -1,5 +1,9 @@
 <?php
 require_once('inc/startsession.php');
+    $Title="Checksheet";
+	include('inc/title.php');
+	require_once('inc/connectvars.php');  // Set the username connection variables.
+
 /////////////////////////////////////////////////////////////////////
 //
 //	Written by Jim Garbe-- Dynamic Checksheet
@@ -8,13 +12,7 @@ require_once('inc/startsession.php');
 if(isset($_GET['checksheet'])) {
     $_POST['checksheet'] = $_GET['checksheet'];
     }
-	include('inc/appvars.php');  // Set the Variables	
-    $Title="Checksheet";
- include('inc/title.php');
-	require_once('inc/connectvars.php');  // Set the username connection variables.
-	require_once('inc/functions.php.inc'); // bring in the functions.
-	require_once('inc/maintmerge.inc.php');
-	require_once('inc/delayscript.inc.php'); // bring in the delay script.
+
   // Connect to the username database 
 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
   // Retrieve the user data from MySQL
@@ -24,7 +22,11 @@ $data = mysqli_query($dbc, $query);
 
 
   if (isset($_SESSION['username'])) {  //****************//If logged in
-
+	require_once('inc/functions.php.inc'); // bring in the functions.
+	require_once('inc/maintmerge.inc.php');
+	require_once('inc/delayscript.inc.php'); // bring in the delay script.
+	require_once('inc/setvartabs.inc.php'); // bring in the setvartabs.inc.php.
+	require_once('inc/appvars.php');  // Set the Variables
 	  // Generate the navigation menu
 
 
@@ -43,16 +45,6 @@ print("<script src=\"js/date.js\"> </script> <!--date.js--> \n");
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 //
@@ -71,35 +63,30 @@ print("<script src=\"js/date.js\"> </script> <!--date.js--> \n");
 				
 	$checkshin =  "".$_POST['checksheet']."_checksheet";
 				
-				
-				
-				
-				
-	
+
 		}
-		
-		
-		
-		
+	
 	}
+/************************************************************************************************************
+ * To set up mailing the checksheet uncomment these two lines
+ * 
+ * **********************************************************************************************************/
 		
-		
-		
-		
-		
-		
-		
-			require_once('inc/mail_req_ajax.inc.php');
-			//mailthestuff($_POST['checksheet'],$_POST['emfield']);
+//			require_once('inc/mail_req_ajax.inc.php');
+//			mailthestuff($_POST['checksheet'],$_POST['emfield']);
+/*************************************************************************************************************
+ * 
+ * 
+ * 
+ * *********************************************************************************************************/
 	//print("<iframe>".include("".HOME."/requisition.php?ch=".$_POST['checksheet']."</iframe>\n");
-			print(" <iframe id=\"postreqman\"  width = \"75%\" src = \"".HOME."/requisition.php?ch=".$_POST['checksheet']."\"></iframe>          \n");
+			print(" <iframe id=\"postreqman\"  width = \"75%\" src = \"".HOME."requisition.php?ch=".$_POST['checksheet']."\"></iframe>          \n");
 		  //include("getrequisition.php?ch=".$Checksheetno."");
 		//include("".HOME."/requisition.php?ch=".$_POST['checksheet']."");
 			//print("".$_POST[attachedCH]."");
 		$returnedCH=unserialize(stripslashes($_POST['attachedCH']))			;
 //print_r2($returnedCH);
 foreach ($returnedCH as $checksheets) {
-require_once('inc/connectvars.php');
   $dbc1 = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); // check connectionif (mysqli_connect_errno()) {
 if (mysqli_connect_errno()) {
   exit('Connect failed: '. mysqli_connect_error());
@@ -115,208 +102,11 @@ $upexp_query="UPDATE ".$checksheets[0]."_events SET date = NOW(), submitted = '1
                 $dbc1->close();
 			
 	  } 
-//$CHqset=$_POST['CHqset'];
 
-//print_r2($CHqset);
-/*	require_once('inc/delayscript.inc.php'); // bring in the functions.
-
-delaybody();		//post delayscript() script.
-delayscript();   //preceding the delaybody() script.
-//////////////////////////////////////////////////////  Now, show the text buttons.
-
-?>
-				<br>	
-				<INPUT TYPE="button" value="View Printable Checksheet!" onClick="window.open('tmp/<?echo $_POST['checksheet']?>print.html')">
-					 <INPUT TYPE="button" value="View Requesition Order!" onClick="window.open('requisition.php?ch=<?echo $_POST['checksheet']?>')">	
-					
-				<?php
-
-
-
-$file = CACHE_DIR.$_POST['checksheet']."/".$_POST['checksheet'].".txt";
-$CH = unserialize(implode('',file($file)));
-//print_r2($CH);	
-
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-//	// The breakdown of all of array formed.
-
-	require_once('inc/order.inc.php'); // bring in the functions.
-			 ClearOrder();  // Ready the Viewable Requisition Order
-		//	print("<div><H3>$_POST['checksheet']</div><br>"); 
-	foreach($CH as $no) {
-		foreach($no as $casc_ID=>$casc_id){
-		$Checksheetno=$casc_id[0];
-		//$sealable=$casc_id[1];
-		//$sealed=$casc_id[2];
-		//$Signature=$casc_id[3];
-		$qset=$casc_id[4];
-		print("$qset<BR>\n");
-		$Cats=$casc_id[5];
-		print("$Checksheetno<BR>\n");
-		//print_r2($Cats);
-
-	//$Checksheetno=checksheet_idtochecksheetname($casc_id);
-		$update_event="UPDATE ".$Checksheetno."_events SET submitted = '1', date = NOW() WHERE id = ".$qset." AND  (merged = '0' || merged IS NULL)";
-		 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
-				mysqli_query($dbc,$update_event) or die("can't submit full event");
-				 mysqli_close($dbc);
-		$update_event2="UPDATE ".$Checksheetno."_events SET submitted = '1', date = NOW() WHERE merger = ".$qset."";
-		 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
-				mysqli_query($dbc,$update_event2) or die("can't submit full event2");
-				 mysqli_close($dbc);
-				
-								?>
-
-
-				<br>
-	
-				</div>
-				<div>
-
-				<?
-				
-
-	foreach($Cats as $Checkrow)	{
-	foreach($Checkrow as $catarray_id =>  $catname) {
-		$CATEGORY=$catname[0];
-		$Catarray=$catname[1];
-		//print("$CATEGORY<BR>\n");
-		//print_r2($catname[1]);
-		
-	PrintO("<center><b>$CATEGORY</b></center>");
-	foreach($Catarray as $Subcatrow)	{
-	foreach($Subcatrow as $subcatarray_id =>  $subcatname) {
-		$SUBCATEGORY=$subcatname[0];
-		$SUBCATCOLS=$subcatname[1];
-		$Itemsarray=$subcatname[2];
-		//print("$SUBCATEGORY<BR>\n");
-		//print("$SUBCATCOLS<BR>\n");
-		//print_r2($Itemsarray);
-					echo"\n\t</tr>\n</table>\n";
-			echo "<table  width=100%>\n";
-			echo "\n\t<tr>\n";
-   echo "<div class=sh>$SUBCATEGORY</div>\n";
-			   echo "\t</tr>\n";
-	echo "\t<tr>\n";
-		
-		
-		$clms = 0;
-	foreach($Itemsarray as $Itemstuff)	{
-		$Item_id=$Itemstuff[0];
-		$Itemname=$Itemstuff[1];
-		$HowMany=$Itemstuff[2];
-		//print_r2($Itemstuff);
-		//print("$Itemname<BR>\n");
-		//print("$HowMany<BR>\n");
-		//print("$Item_id<BR>\n");
-			$variable=$_POST[$catarray_id."_".$subcatarray_id."_".$Item_id];
-			require_once('inc/variablepostsort.inc.php'); // bring in the functions.	
-			if ($clms >= $SUBCATCOLS) {  // if cols number is reached by clms
-				echo "\n\t</tr>\n\t<tr>\n";
-					$clms = 0; //reset to 1
-				variablepostsort ($Item_id,$Itemname,$HowMany,$variable);//line632
-
-				$clms=$clms+1;}
-			else {
-				variablepostsort   ($Item_id,$Itemname,$HowMany,$variable); //line632
- $clms=$clms+1;
-}
-		
-		
-		
-		
-		
-      }
-		}}
-		}}
-		}}
-
-			print ("\n\t</tr>\n</table>");
-//
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-	
-/*
-	require_once('inc/order.inc.php'); // bring in the functions.
-			 ClearOrder();  // Ready the Viewable Requisition Order
-//print_r2($CHqset);
-foreach($CHqset as $casc_id => $q_set){
-		echo $casc_id."\n";
-		echo $q_set."\n";
-	$Checksheetno=checksheet_idtochecksheetname($casc_id);
-		$update_event="UPDATE ".$Checksheetno."_events SET submitted = 1, date = NOW() WHERE $q_set = id";
-		 $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
-				mysqli_query($dbc,$update_event) or die("can't submit full event");
-				 mysqli_close($dbc);
-
-//CategoryOrder($Checksheetno);
-
-
-	
-				?>
-
-
-				<br>
-	
-				</div>
-				<div>
-
-				<?
-
-
-
-
-	require_once('inc/getcatsubpost.inc.php'); // bring in the functions.
-				getcatsubpost ($casc_id);  //line 1192
-				
-				echo"</div>";
-				 
-				echo"<div>";
-	smaintmerge($casc_id,$q_set);  //Merge the Maintenance data to the Requisition and Checksheet order.
-				
-				echo"</div>";
-
-}
-
-foreach($CH as $no) {
-foreach($no as $casc_ID=>$casc_id) {
-
-	smaintmerge($casc_ID,$q_set);  //Merge the Maintenance data to the Requisition and Checksheet order.
-}
-}
-//	require_once('inc/rsschsh.inc.php'); // bring in the functions.
-// CloseRSSOrder();
-*/
 }//end of submitting 'else' part of page
 else {
 
 
-
-
-
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -328,8 +118,8 @@ else {
 $Checksheetno = $_POST['checksheet'];  //declare the menu checksheet name.
 
 //print("<br/>DBG main.php Line 330<br/>\n");
-include('inc/data_acquisition.inc.php');
-
+require_once('inc/data_acquisition.inc.php');
+//print("<span style='color:yellow;'>DBG LINE 332 main.php</span>");print_r2($CH);
 //print("<br/>DBG main.php Line 333<br/>\n");
 ///// Test breakdown of checksheets to be submitted
 //print_r2($submit_array);
@@ -337,27 +127,10 @@ include('inc/data_acquisition.inc.php');
 /////////////////////////////////////////////////////////////////////////////////////////////////
 //   You first open the page and you're presented with a checksheet
 //
-//
-//
 //////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////  Prepare the text pages.
 
-/*
-print("<script>\n");
-print("jQuery.validator.setDefaults({\n");
-print("  debug: true,\n");
-print("  success: \"valid\"\n");
-print("});\n");
-print("$( \"#Main\" ).validate({\n");
-print("  rules: {\n");
-print("    emfield: {\n");
-print("      required: true,\n");
-print("     email: true\n");
-print("    }\n");
-print("  }\n");
-print("});\n");
-print("</script>\n");
-*/
+
 //print("<br/>DBG main.php Line 359<br/>\n");
 include('inc/jquery_ajax_scripts.inc.php');
 //print("<br/>DBG main.php Line 361<br/>\n");
@@ -374,8 +147,8 @@ include('inc/jquery_ajax_scripts.inc.php');
  * 
  */
  
+//print("main.php line 377 array of CH<br />\n");print_r2($CH);
   include('inc/validate.inc.php'); // bring in the requirement validation of form
-	require_once('inc/setvartabs.inc.php'); // bring in the setvartabs.inc.php.
 setvartabs($CH);	//get the tabs ready from the $CH array. 
 delaybody();		//post delayscript() script.
 
@@ -508,7 +281,7 @@ print(" <div class=page>  \n");
 print("	<input type='hidden' name='checksheet' value='".$_POST['checksheet']."' />   \n");
 print("	<input type='hidden' name='attachedCH' value='".serialize($submit_array)."' />   \n");
 //print_r2($submit_array);
-
+//print("<span style='color:yellow;'>DBG LINE 511 main.php</span>");print_r2($CH);
 	require_once('inc/getcat.inc.php'); // bring in the functions.
 getcat($CH); //Place the Tabs prepaired from the setvartabs function
 //Now place the stuff under the tabs.
@@ -518,21 +291,21 @@ foreach($CH as $no) {  //print("main.php DBG LINE 1282 -- CH is ".$CH."<br />\n 
 foreach($no as $casc_ID=>$casc_id) { //print("main.php DBG LINE 1283 -- casc_ID is ".$casc_ID."<br />\n ");
 		$Checksheetno=$casc_id[0];
 		$sealable = $casc_id[1];//print("Sealable: ".$sealable."<br>\n");
-		$sealed = $casc_id[2];// print("Sealed: ".$sealed."<br>\n");
+		$sealed = $casc_id[2];  //print("DBG LINE 522 main.php -- Sealed: ".$sealed."<br>\n");
 		$Signature = _user_idtoname($casc_id[3]);
 		$q_set = $casc_id[4];
 		$Cats=$casc_id[5];
 		//print("Over the $casc_ID<br>");
 //print("The casc_ID is $casc_ID<br />\n");
-		//print("main.php DBG LINE 524 ");print_r2($Cats);
+		//print("main.php DBG LINE 528 ");print_r2($Cats);
 
 	foreach($Cats as $Checkrow)	{
 	foreach($Checkrow as $catarray_id =>  $catname) {
-		//print("main.php DBG LINE 1296 catarray_id = ".$catarray_id."\n");
+		//print("main.php DBG LINE 532 catarray_id = ".$catarray_id."\n");
 		$CATEGORY=$catname[0];
 		$Catarray=$catname[1];
 	//		print("main.php DBG LINE 1299 Catarray \n");print_r2($Catarray);
-				$cat_id=$catarray_id;
+		$cat_id=$catarray_id;
 
 			if ($cattab == 1) { //if it's the first tab--visible
 				print("<div id='tab".$cattab."' class='tabContent'  style='display:block'><br>\n");
@@ -541,14 +314,14 @@ foreach($no as $casc_ID=>$casc_id) { //print("main.php DBG LINE 1283 -- casc_ID 
 				print("<div id='tab".$cattab."' class='tabContent'><br>\n");
 			}
 
-//print("main.php DBG LINE 541 ".$CATEGORY."<br />\n");
+//print("main.php DBG LINE 545 ".$CATEGORY."<br />\n");
 		//print_r2($catname[1]);
-			//print("main.php DBG LINE 1311 --The cattab ".$cattab." \n");
+			//print("main.php DBG LINE 547 --The cattab ".$cattab." \n");
 			$cattab=$cattab+1;
 
 
 
-//print("main.php line597 include");
+//print("main.php line552 include category_select2.inc.php");
 			include("inc/category_select2.inc.php");
 
 

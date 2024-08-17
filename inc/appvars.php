@@ -8,13 +8,13 @@
   define('MM_MAXIMGHEIGHT', 1024);       // 
   define('TMP', 'tmp/');
   define('CACHE_DIR', 'tmp/');
-  define('MAIL_SERVER', 'http://garbe.tplinkdns.com/~ems');
+  define('MAIL_SERVER', '<your mail domain>'); 
   define('MYSQL_NUM',MYSQLI_NUM);
   
   
   //define('PORTAL', 'http://www.whatever.com/');
-  define('PORTAL', 'localhost/~ems');
-  define('HOME', 'localhost/~ems/KLSC_ch');
+  define('PORTAL', '<your page with checksheet link>');    //Landing page outside of checksheet
+  define('HOME', '<the HOME of your checksheet>'); //directory where checksheet is installed currently --Dynamic_Checksheet--
   define('THEME', 'css/plaintheme.php');
   
 ?>
