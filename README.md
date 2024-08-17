@@ -68,6 +68,9 @@ Dynamic Checksheet will be writing files for cache and uploading of files.
 
     # chown -R www-data:www-data tmp
     # chmod -R 0755 tmp
+    
+    # chown -R www-data:www-data config
+    # chmod -R 0755 config
 
 This should allow the LAMP server permission to write the file it needs.
 
