@@ -27,18 +27,17 @@ then
 
 then    
     
-    > grant all on <database_name>.* to <databaseusername>@localhost identified by '<password>';
+    > grant all on <database_name>.* to <databaseusername>@<hostname> identified by '<password>';
 
 and finally
 
     > exit;
     
 Step 4. edit "Dynamic_Checksheet/inc/connectvars.php" 
-
-    Change the mysql host, databasename, username, and password.
+Change the mysql host, databasename, username, and password.
     
 Step 5. edit "Dynamic_Checksheet/inc/appvars.inc.php."   
-    Change to appropriate choices.
+Change to appropriate choices.
     
 Step 6. Load the database.  
     Go to the "sql" directory.
